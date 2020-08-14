@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTT-APP Note</title>
+    <style>
+        body {font-family: Verdana, sans-serif;};
+        .icon {font-size: 40px; }
+    </style>
+
+    <script>
+        function addText() {
+            //DOM
+            var tagInputNote = document.getElementById("inputNote");
+            var tagList = document.getElementById("tagList");
+            var tagInputColor = document.getElementById("inputColor");
+
+            //console.log("Vai Corinthians!!");
+            console.log(tagInputNote.value, tagInputColor.value);
+            
+            var tagLi = document.createElement("li");         
+            
+            tagLi.innerHTML = tagInputNote.value;
+
+            tagList.appendChild(tagLi);
+        }
+        function setSkullSize() {
+            var tagSlider = document.getElementById("skullSize");
+            var tagDiv = document.getElementById("skullIcon");
+
+            console.log(tagSlider.value);
+            tagDiv.style.fontSize = tagSlider.value + "px";
+        }
+    </script>
+</head>
+<body>
+<h1>FTT-APP Note</h1>
+    <p>
+        <input type="text" id="inputNote">
+        <input type="color" id="inputColor">
+        <button onclick="addText();">Salva</button>
+    </p>
+    <input onchange="setSkullSize();" type="range" min="30" max="300" value="100" class="slider" id="skullSize">    
+    <div class="icon" id="skullIcon">☠</div>
+    <hr>
+    <ul id="tagList">
+        
+    </ul>
+    <hr>
+
+    <!-- Emmet - https://emmet.io/ -->
+    <pre>
+    #page>div.logo+ul#navigation>li*5>a{Item $}
+    </pre>
+
+    <div id="page">
+        <div class="logo"></div>
+        <ul id="navigation">
+            <li><a href="">Item 1</a></li>
+            <li><a href="">Item 2</a></li>
+            <li><a href="">Item 3</a></li>
+            <li><a href="">Item 4</a></li>
+            <li><a href="">Item 5</a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>
+
+<!-- 
+
+Applicação vanilla - HTML5, CCS3, JavaScript 6 (ECMAScript 6)
+
+-- Todo
+-- Agenda
+-- Cadastro
+
+-->

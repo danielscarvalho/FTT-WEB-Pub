@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTT - Search News</title>
+</head>
+<script>
+function ssearch() {
+    let searchText = document.getElementById("searchText");
+    let preTag = document.getElementById("preTag");
+    
+    var ddgURL="https://api.duckduckgo.com/?format=json&pretty=1&q=";
+
+    console.log("Buscando...");
+    
+    console.log(searchText.value);
+    
+    //Cross Origin Resource Sharing (CORS)
+    //https://en.wikipedia.org/wiki/Cross-site_scripting
+
+    //https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch
+
+    //console.log(ddgURL + searchText.value);
+    var API_KEY="4XYRXT-R4JJJ48E9A4";
+
+    var url = 'http://api.wolframalpha.com/v1/result?appid=' +
+              API_KEY + 
+              '&i=' + searchText.value;
+    
+    console.log(url);
+    //var req = new Request(url);
+
+    fetch(url, {mode:"no-cors"})
+    .then(response => response.text())
+    .then(text => console.log(text))
+    
+    /*
+    fetch(ddgURL + searchText.value)
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(text) {
+        console.log('Request successful')
+        console.log(text);
+        //console.log(text);
+        preTag.innerHTML = text;
+    })
+    .catch(function(error) {
+        log('Request failed', error)
+    });
+*/
+} //ssearch
+</script>
+<body>
+    <input type="search" id="searchText" required>
+    <button onclick="ssearch();">Search</button>
+    <hr>
+    <pre id="preTag"></pre>
+</body>
+</html>
